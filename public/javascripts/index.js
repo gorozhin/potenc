@@ -107,18 +107,22 @@ window.addEventListener('load', async () => {
         coord(draw);
         let h = draw.node.clientHeight;
         let w = draw.node.clientWidth;
-            for (let x = 0; x <= w; x += 10) {
 
-                    for (let y = 0; y <= h; y += 10) {
-                        let newDot = {
-                            x: x / w,
-                            y: 1 - (y / h),
-                        };
+        for (let x = 0; x <= w; x += 10) {
+            for (let y = 0; y <= h; y += 10) {
+                let newDot = {
+                    x: x / w,
+                    y: 1 - (y / h),
+                };
+                setTimeout(function(){
 
-                        newDot.class = classify(dots, newDot, defaultKernel, H);
-                        printDot(draw, newDot);
-                    }
+                newDot.class = classify(dots, newDot, defaultKernel, H);
+                printDot(draw, newDot);
+                }, 0)
             }
+        }
+
+
 
     });
 
